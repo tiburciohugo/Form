@@ -36,6 +36,29 @@ function isValidEmail(email) {
   });
 } */
 
+//Verificar length do input
+function checkLenght(input, min, max) {
+  if (input.value.length < min) {
+    mostraErro(input, `${getFieldName(input)} tem que ter pelo menos ${min} caracteres`);
+  } else if (input.value.length > max) {
+    mostraErro(input, `${getFieldName(input)} tem que ter menos de ${max} caracteres`);
+  } else {
+    mostraSucesso(input);
+  }
+}
+
+//Verificar se as senhas são iguais(match)
+function checkPasswordsMatch (input1, input2) {
+  if (input1.value !== input2.value) {
+    mostraErro(input2, 'As senhas não conferem');
+  }
+}
+
+//Get fieldname
+function getFieldName(input) {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+}
+
 //Eventos
 form.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -68,5 +91,7 @@ form.addEventListener('submit', function(event) {
     mostraSucesso(senha2);
   }
 
-  
+  checkLenght(usuario, 3, 15);
+  checkLenght(senha, 6, 20);
+  checkPasswordsMatch(senha, senha2);
 });
