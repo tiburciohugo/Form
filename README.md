@@ -6,6 +6,8 @@
 all pure HTML, CSS and Javascript.
 ** Please note that some of the code in my project is in my mother language.
 
+ - You can check the project here: https://tiburciohugo.github.io/Form/
+
 
 ## Technologies
 
